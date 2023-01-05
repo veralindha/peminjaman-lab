@@ -6,7 +6,6 @@ export default function Navbar() {
         <form className="form-inline mr-auto">
           <ul className="navbar-nav mr-3">
             <li><a href="#" data-toggle="sidebar" className="nav-link nav-link-lg"><i className="fas fa-bars" /></a></li>
-            <li><a href="#" data-toggle="search" className="nav-link nav-link-lg d-sm-none"><i className="fas fa-search" /></a></li>
           </ul>
         </form>
         <ul className="navbar-nav navbar-right">

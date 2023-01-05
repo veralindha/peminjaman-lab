@@ -17,7 +17,7 @@ export default function Register() {
           </div>
       </div>
       <div className="col-2">
-        <button type="submit" className="btn btn-primary btn-lg btn-block">
+        <button type="submit" className="btn btn-primary btn-lg">
           Tambahkan
         </button>
       </div>
