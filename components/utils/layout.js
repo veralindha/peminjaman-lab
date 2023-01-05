@@ -1,7 +1,6 @@
 import Footer from "./footer";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
-import Tes from "./tes";
 
 export default function Layout({ children }) {
   return (
@@ -12,7 +11,6 @@ export default function Layout({ children }) {
         <div className="main-content" style={{ minHeight: 530 }}>
           <section className="section">
             {children}
-            <Tes/>
           </section>
         </div>
         <Footer />
