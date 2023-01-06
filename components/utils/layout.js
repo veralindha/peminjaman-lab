@@ -8,7 +8,7 @@ export default function Layout({ children }) {
       <div className="main-wrapper main-wrapper-1">
         <Navbar />
         <Sidebar />
-        <div className="main-content" style={{ minHeight: 530 }}>
+        <div className="main-content" style={{ minHeight: '530' }}>
           <section className="section">
             {children}
           </section>

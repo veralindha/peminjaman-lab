@@ -12,13 +12,13 @@ export default function AddSchedulePage() {
               <label>Pilih Guru</label>
               <select className="custom-select">
                 <option selected>Alex</option>
-                <option value={1}>Dendi</option>
-                <option value={2}>Fuad</option>
-                <option value={3}>Herlambang</option>
-                <option value={4}>Hilal</option>
-                <option value={5}>Reza</option>
-                <option value={6}>Yogi</option>
-                <option value={7}>Zeta</option>
+                <option>Dendi</option>
+                <option>Fuad</option>
+                <option>Herlambang</option>
+                <option>Hilal</option>
+                <option>Reza</option>
+                <option>Yogi</option>
+                <option>Zeta</option>
               </select>
             </div>
             <div className="col-4">

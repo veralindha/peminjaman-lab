@@ -33,7 +33,7 @@ export default function TabelSchedule() {
         <div className="card-body">
           <div>
             <div className="section-title">Senin</div>
-            <table class="table">
+            <table className="table table-bordered text-dark">
               <thead>
                 <tr>
                   <th scope="col">Nama LAB</th>

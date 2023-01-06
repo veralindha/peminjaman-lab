@@ -16,16 +16,16 @@ export default function Sidebar() {
           </li>
           <li className="menu-header">Starter</li>
           <li className="dropdown">
-            <Link href="" className="nav-link has-dropdown" data-toggle="dropdown"><i className="fas fa-columns" /> <span>Jadwal</span></Link>
+            <Link href="#" className="nav-link has-dropdown" data-toggle="dropdown"><i className="fas fa-columns" /> <span>Jadwal</span></Link>
             <ul className="dropdown-menu">
-              <li><Link className="nav-link" href="/jadwal/table_schedule" >Info Jadwal</Link></li>
+              <li className='active'><Link className="nav-link" href="/jadwal/table_schedule" >Info Jadwal</Link></li>
               <li><Link className="nav-link" href="/jadwal/add_schedule">Tambah Jadwal</Link></li>
             </ul>
           </li>
 
           <li className="menu-header">Pages</li>
           <li className="dropdown">
-            <Link href="#" className="nav-link has-dropdown"><i className="far fa-user" /> <span>Auth</span></Link>
+            <Link href="/auth/register" className="nav-link has-dropdown"><i className="far fa-user" /> <span>User</span></Link>
             <ul className="dropdown-menu">
               <li><Link href="/auth/register">Register</Link></li>
             </ul>
