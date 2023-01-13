@@ -16,7 +16,14 @@ model User {
   id        Int        @id @default(autoincrement())
   username  String     @unique
   password  String
-  role      String     @default("GURU")
+  role      String     @default("VIEW")
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @default(now())
+}
+
+model Guru {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
   color     String     @default("#000000")
   createdAt DateTime   @default(now())
   updatedAt DateTime   @default(now())
@@ -35,9 +42,9 @@ model Schedule {
   id            Int      @id @default(autoincrement())
   lab           Lab      @relation(fields: [labId], references: [id])
   labId         Int
-  user          User     @relation(fields: [userId], references: [id])
-  userId        Int
-  date          DateTime
+  guru          Guru?    @relation(fields: [guruId], references: [id])
+  guruId        Int?
+  day           String
   start_session String?
   end_session   String?
   createdAt     DateTime @default(now())
