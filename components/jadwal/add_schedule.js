@@ -33,7 +33,7 @@ export default function AddSchedulePage() {
             <div className="col-4">
               <label>Pilih Guru</label>
               <select className="custom-select">
-                <option selected>Alex</option>
+                <option >Alex</option>
                 <option>Dendi</option>
                 <option>Fuad</option>
                 <option>Herlambang</option>
@@ -57,7 +57,7 @@ export default function AddSchedulePage() {
             <div className="col-4">
               <label>Pilih LAB</label>
               <select className="custom-select">
-                <option selected>1</option>
+                <option >1</option>
                 <option>4</option>
                 <option>5</option>
                 <option>6</option>
@@ -75,7 +75,7 @@ export default function AddSchedulePage() {
             <div className="col-4">
               <label>Sesi Mulai</label>
               <select className="custom-select">
-                <option selected>1</option>
+                <option >1</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
@@ -87,7 +87,7 @@ export default function AddSchedulePage() {
             <div className="col-4">
               <label>Sesi Selesai</label>
               <select className="custom-select">
-                <option selected>1</option>
+                <option >1</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
