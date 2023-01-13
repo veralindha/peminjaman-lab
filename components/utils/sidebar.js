@@ -14,7 +14,7 @@ export default function Sidebar() {
           <li className="dropdown active">
             <Link href="/" className="nav-link"><i className="fas fa-fire" /><span>Dashboard</span></Link>
           </li>
-          <li className="menu-header">Starter</li>
+          <li className="menu-header">Menu</li>
           <li className="dropdown">
             <Link href="#" className="nav-link has-dropdown" data-toggle="dropdown"><i className="fas fa-columns" /> <span>Jadwal</span></Link>
             <ul className="dropdown-menu">
@@ -23,7 +23,7 @@ export default function Sidebar() {
             </ul>
           </li>
 
-          <li className="menu-header">Pages</li>
+          <li className="menu-header">Akun</li>
           <li className="dropdown">
             <Link href="/auth/register" className="nav-link has-dropdown"><i className="far fa-user" /> <span>User</span></Link>
             <ul className="dropdown-menu">
