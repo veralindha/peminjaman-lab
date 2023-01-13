@@ -1,3 +1,5 @@
+import { prisma } from "../../../utils/prisma.util"
+
 export default function handler(req, res) {
   if (req.method === 'GET') {
     prisma.guru.findMany()

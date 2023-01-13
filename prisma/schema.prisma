@@ -27,7 +27,6 @@ model Guru {
   color     String     @default("#000000")
   createdAt DateTime   @default(now())
   updatedAt DateTime   @default(now())
-  schedules Schedule[]
 }
 
 model Lab {
@@ -35,15 +34,13 @@ model Lab {
   name      String     @unique
   createdAt DateTime   @default(now())
   updatedAt DateTime   @default(now())
-  schedules Schedule[]
 }
 
 model Schedule {
   id            Int      @id @default(autoincrement())
-  lab           Lab      @relation(fields: [labId], references: [id])
   labId         Int
-  guru          Guru?    @relation(fields: [guruId], references: [id])
-  guruId        Int?
+  guruId        Int
+  course        String
   day           String
   start_session String?
   end_session   String?

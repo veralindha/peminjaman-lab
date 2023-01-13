@@ -17,13 +17,14 @@ async function main() {
 
   const gurus = await prisma.guru.createMany({
     data: [
-      { name: 'Guru 1', color: '#FF0000' },
-      { name: 'Guru 2', color: '#00FF00' },
-      { name: 'Guru 3', color: '#0000FF' },
-      { name: 'Guru 4', color: '#FFFF00' },
-      { name: 'Guru 5', color: '#00FFFF' },
-      { name: 'Guru 6', color: '#FF00FF' },
-      { name: 'Guru 7', color: '#000000' }
+      { name: 'Alex', color: '#FF0000' },
+      { name: 'Hilal', color: '#00FF00' },
+      { name: 'Reza', color: '#0000FF' },
+      { name: 'Dendi', color: '#FFFF00' },
+      { name: 'Zeta', color: '#00FFFF' },
+      { name: 'Yogi', color: '#FF00FF' },
+      { name: 'Herlambang', color: '#000000' },
+      { name: 'Fuad', color: '#000000' }
     ],
     skipDuplicates: true
   });
