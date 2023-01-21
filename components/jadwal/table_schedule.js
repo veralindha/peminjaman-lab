@@ -1,4 +1,35 @@
+import { useEffect, useState } from "react"
+
 export default function TabelSchedule() {
+  const [schedules, setSchedules] = useState([])
+  const [labs, setLabs] = useState([])
+
+  const handleGetSchedules = () => {
+    fetch('http://localhost:3000/api/jadwal/all')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if(data.data.length === 0) return alert('Data Kosong!')
+        setSchedules(data.data)
+      })
+      .catch(err => console.log(err))
+  }
+
+  const handleGetLabs = () => {
+    fetch('http://localhost:3000/api/lab/all')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if(data.data.length === 0) return alert('Data Kosong!')
+        setLabs(data.data)
+      })
+      .catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+    handleGetSchedules()
+    handleGetLabs()
+  }, [])
   return (
     <>
       <div>

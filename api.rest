@@ -1,0 +1,22 @@
+#################### Jadwal API ####################
+####################################################
+### GET API Jadwal All
+GET http://localhost:3000/api/jadwal/all HTTP/1.1
+
+### GET API Jadwal by ID
+GET http://localhost:3000/api/jadwal/1 HTTP/1.1
+
+### POST API Jadwal Add
+POST http://localhost:3000/api/jadwal/create HTTP/1.1
+Content-Type: application/json
+{
+  "id": 1,
+  "labId": 1,
+  "day": "Selasa",
+  "course": "XII PWPB",
+  "start_session": "3",
+  "end_session": "6",
+}
+
+#################### Jadwal API ####################
+####################################################

@@ -36,8 +36,20 @@ async function main() {
     ],
     skipDuplicates: true
   });
+
+  const schedules = await prisma.schedule.createMany({
+    data: [
+      { guruId: 1, labId: 5, course: 'XI ASJ', day: 'SENIN', start_session: '1', end_session: '3' },
+      { guruId: 2, labId: 4, course: 'XII PWPB', day: 'SENIN', start_session: '1', end_session: '8' },
+      { guruId: 3, labId: 5, course: 'XI AIJ', day: 'SENIN', start_session: '4', end_session: '6' },
+      { guruId: 4, labId: 5, course: 'X ASJ', day: 'SENIN', start_session: '7', end_session: '8' },
+      { guruId: 5, labId: 6, course: 'XI TLJ', day: 'SENIN', start_session: '1', end_session: '6' },
+      { guruId: 7, labId: 1, course: 'X PPLG', day: 'SENIN', start_session: '1', end_session: '8' }
+    ],
+    skipDuplicates: true
+  });
   
-  console.log({ labs, gurus, users });
+  console.log({ labs, gurus, users, schedules });
 }
 
 main()
