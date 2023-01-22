@@ -1,6 +1,36 @@
+import { useEffect, useState } from "react"
 import TabelSchedule from "../../components/jadwal/table_schedule"
 import Layout from "../../components/utils/layout"
 export default function TabelSchedulePage() {
+  const [schedules, setSchedules] = useState([])
+  const [labs, setLabs] = useState([])
+
+  const handleGetSchedules = () => {
+    fetch('http://localhost:3000/api/jadwal/all')
+      .then(res => res.json())
+      .then(data => {
+        if(data.message !== 'success') return alert('Data Kosong!')
+        setSchedules(data.data)
+        console.log(data.data)
+      })
+      .catch(err => console.log(err))
+  }
+
+  const handleGetLabs = () => {
+    fetch('http://localhost:3000/api/lab/all')
+      .then(res => res.json())
+      .then(data => {
+        if(data.message !== 'success') return alert('Data Kosong!')
+        setLabs(data.data)
+        console.log(data.data)
+      })
+      .catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+    handleGetSchedules()
+    handleGetLabs()
+  }, [])
   return (
     <Layout>
       <div>
@@ -14,7 +44,7 @@ export default function TabelSchedulePage() {
         <div className="section-body">
           <div className="row">
             <div className="col-12">
-              <TabelSchedule/>
+              <TabelSchedule schedule={schedules} lab={labs}/>
             </div>
           </div>
         </div>

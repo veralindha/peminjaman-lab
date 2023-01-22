@@ -1,35 +1,7 @@
 import { useEffect, useState } from "react"
 
-export default function TabelSchedule() {
-  const [schedules, setSchedules] = useState([])
-  const [labs, setLabs] = useState([])
+export default function TabelSchedule({ schedule, lab }) {
 
-  const handleGetSchedules = () => {
-    fetch('http://localhost:3000/api/jadwal/all')
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        if(data.data.length === 0) return alert('Data Kosong!')
-        setSchedules(data.data)
-      })
-      .catch(err => console.log(err))
-  }
-
-  const handleGetLabs = () => {
-    fetch('http://localhost:3000/api/lab/all')
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        if(data.data.length === 0) return alert('Data Kosong!')
-        setLabs(data.data)
-      })
-      .catch(err => console.log(err))
-  }
-
-  useEffect(() => {
-    handleGetSchedules()
-    handleGetLabs()
-  }, [])
   return (
     <>
       <div>
@@ -86,22 +58,22 @@ export default function TabelSchedule() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">LAB 1</th>
-                  <td>Mark</td>
-                </tr>
-                <tr>
-                  <th scope="row">LAB 4</th>
-                  <td>Mark</td>
-                </tr>
-                <tr>
-                  <th scope="row">LAB 5</th>
-                  <td>Mark</td>
-                </tr>
-                <tr>
-                  <th scope="row">LAB 6</th>
-                  <td>Mark</td>
-                </tr>
+                {lab.map((item, index) => {
+                  return (
+                    <tr key={index}>
+                      <th scope="row">{item.name}</th>
+                      {schedule.map((item2, index2) => {
+                        if (item2.labId == item.id) {
+                          return (
+                            <td key={index2} className="text-center" colSpan={item2.end_session - item2.start_session + 1}>
+                              {item2.course} - {item2.Gurus.name} - sesi {item2.start_session} - {item2.end_session}
+                            </td>
+                          )
+                        }
+                      })}
+                    </tr>
+                  )
+                })}
               </tbody>
             </table>
           </div>

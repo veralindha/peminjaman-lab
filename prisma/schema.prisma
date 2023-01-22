@@ -13,20 +13,21 @@ datasource db {
 }
 
 model User {
-  id        Int        @id @default(autoincrement())
-  username  String     @unique
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
   password  String
-  role      String     @default("VIEW")
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @default(now())
+  role      String   @default("VIEW")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
 }
 
 model Guru {
-  id        Int        @id @default(autoincrement())
-  name      String     @unique
-  color     String     @default("#000000")
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @default(now())
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  color     String   @default("#000000")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  Schedule  Schedule[]
 }
 
 model Lab {
@@ -34,11 +35,14 @@ model Lab {
   name      String     @unique
   createdAt DateTime   @default(now())
   updatedAt DateTime   @default(now())
+  Schedule  Schedule[]
 }
 
 model Schedule {
   id            Int      @id @default(autoincrement())
+  Labs          Lab      @relation(fields: [labId], references: [id])
   labId         Int
+  Gurus         Guru     @relation(fields: [guruId], references: [id])
   guruId        Int
   course        String
   day           String
