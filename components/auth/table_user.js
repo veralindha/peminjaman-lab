@@ -1,4 +1,18 @@
-export default function TableUser() {
+export default function TableUser({users}) {
+  const deleteUser = (id) => {
+    fetch(`/api/user/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        alert(data.message)
+      })
+      .catch(err => console.log(err))
+  }
   return (
     <div className="card">
       <div className="card-header">
@@ -15,18 +29,21 @@ export default function TableUser() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Alex</td>
-              <td>Guru</td>
-              <td>
-                <button className="btn btn-danger"><i className="fas fa-trash" /></button>
-              </td>
-            </tr>
+            {users.map((user, index) => {
+              return (
+                <tr key={index}>
+                  <th scope="row">{index + 1}</th>
+                  <td>{user.username}</td>
+                  <td>{user.role}</td>
+                  <td>
+                    <button className="btn btn-danger" onClick={() => deleteUser(user.id)}><i className="fas fa-trash" /></button>
+                  </td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </div>
     </div>
-
   )
 }

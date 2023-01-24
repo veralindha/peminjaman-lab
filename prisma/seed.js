@@ -28,7 +28,7 @@ async function main() {
     ],
     skipDuplicates: true
   });
-
+  
   const users = await prisma.user.createMany({
     data: [
       { username: 'admin', password: 'admin', role: 'FULL' },
@@ -36,20 +36,58 @@ async function main() {
     ],
     skipDuplicates: true
   });
-
+  
+  const deleteSchedules = await prisma.schedule.deleteMany({});
   const schedules = await prisma.schedule.createMany({
     data: [
+      // Senin
       { guruId: 1, labId: 5, course: 'XI ASJ', day: 'SENIN', start_session: '1', end_session: '3' },
       { guruId: 2, labId: 4, course: 'XII PWPB', day: 'SENIN', start_session: '1', end_session: '8' },
       { guruId: 3, labId: 5, course: 'XI AIJ', day: 'SENIN', start_session: '4', end_session: '6' },
       { guruId: 4, labId: 5, course: 'X ASJ', day: 'SENIN', start_session: '7', end_session: '8' },
       { guruId: 5, labId: 6, course: 'XI TLJ', day: 'SENIN', start_session: '1', end_session: '6' },
-      { guruId: 7, labId: 1, course: 'X PPLG', day: 'SENIN', start_session: '1', end_session: '8' }
+      { guruId: 7, labId: 1, course: 'X PPLG', day: 'SENIN', start_session: '1', end_session: '8' },
+      /// Selasa
+      { guruId: 1, labId: 5, course: 'XI ASJ', day: 'SELASA', start_session: '1', end_session: '3' },
+      { guruId: 2, labId: 4, course: 'XII PWPB', day: 'SELASA', start_session: '1', end_session: '8' },
+      { guruId: 3, labId: 5, course: 'XI AIJ', day: 'SELASA', start_session: '4', end_session: '6' },
+      { guruId: 4, labId: 5, course: 'X ASJ', day: 'SELASA', start_session: '7', end_session: '8' },
+      { guruId: 5, labId: 6, course: 'XI TLJ', day: 'SELASA', start_session: '1', end_session: '6' },
+      { guruId: 7, labId: 1, course: 'X PPLG', day: 'SELASA', start_session: '1', end_session: '8' },
+      /// Rabu
+      { guruId: 1, labId: 5, course: 'XI ASJ', day: 'RABU', start_session: '1', end_session: '3' },
+      { guruId: 2, labId: 4, course: 'XII PWPB', day: 'RABU', start_session: '1', end_session: '8' },
+      { guruId: 3, labId: 5, course: 'XI AIJ', day: 'RABU', start_session: '4', end_session: '6' },
+      { guruId: 4, labId: 5, course: 'X ASJ', day: 'RABU', start_session: '7', end_session: '8' },
+      { guruId: 5, labId: 6, course: 'XI TLJ', day: 'RABU', start_session: '1', end_session: '6' },
+      { guruId: 7, labId: 1, course: 'X PPLG', day: 'RABU', start_session: '1', end_session: '8' },
+      /// Kamis
+      { guruId: 1, labId: 5, course: 'XI ASJ', day: 'KAMIS', start_session: '1', end_session: '3' },
+      { guruId: 2, labId: 4, course: 'XII PWPB', day: 'KAMIS', start_session: '1', end_session: '8' },
+      { guruId: 3, labId: 5, course: 'XI AIJ', day: 'KAMIS', start_session: '4', end_session: '6' },
+      { guruId: 4, labId: 5, course: 'X ASJ', day: 'KAMIS', start_session: '7', end_session: '8' },
+      { guruId: 5, labId: 6, course: 'XI TLJ', day: 'KAMIS', start_session: '1', end_session: '6' },
+      { guruId: 7, labId: 1, course: 'X PPLG', day: 'KAMIS', start_session: '1', end_session: '8' },
+      /// Jumat
+      { guruId: 1, labId: 5, course: 'XI ASJ', day: 'JUMAT', start_session: '1', end_session: '3' },
+      { guruId: 2, labId: 4, course: 'XII PWPB', day: 'JUMAT', start_session: '1', end_session: '8' },
+      { guruId: 3, labId: 5, course: 'XI AIJ', day: 'JUMAT', start_session: '4', end_session: '6' },
+      { guruId: 4, labId: 5, course: 'X ASJ', day: 'JUMAT', start_session: '7', end_session: '8' },
+      { guruId: 5, labId: 6, course: 'XI TLJ', day: 'JUMAT', start_session: '1', end_session: '6' },
+      { guruId: 7, labId: 1, course: 'X PPLG', day: 'JUMAT', start_session: '1', end_session: '8' },
+      /// Sabtu
+      { guruId: 1, labId: 5, course: 'XI ASJ', day: 'SABTU', start_session: '1', end_session: '3' },
+      { guruId: 2, labId: 4, course: 'XII PWPB', day: 'SABTU', start_session: '1', end_session: '8' },
+      { guruId: 3, labId: 5, course: 'XI AIJ', day: 'SABTU', start_session: '4', end_session: '6' },
+      { guruId: 4, labId: 5, course: 'X ASJ', day: 'SABTU', start_session: '7', end_session: '8' },
+      { guruId: 5, labId: 6, course: 'XI TLJ', day: 'SABTU', start_session: '1', end_session: '6' },
+      { guruId: 7, labId: 1, course: 'X PPLG', day: 'SABTU', start_session: '1', end_session: '8' },
     ],
     skipDuplicates: true
   });
+
   
-  console.log({ labs, gurus, users, schedules });
+  console.log({ labs, gurus, users, deleteSchedules, schedules });
 }
 
 main()

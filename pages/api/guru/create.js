@@ -18,7 +18,6 @@ export default function handler(req, res) {
       });
       break;
     default:
-      res.setHeader('Allow', ['POST']);
       res.status(405).end(`Method ${method} Not Allowed`);
   }
 }

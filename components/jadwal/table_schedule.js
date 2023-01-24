@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react"
-
-export default function TabelSchedule({ schedule, lab }) {
-
+export default function TabelSchedule({ schedule, lab, days }) {
   return (
     <>
       <div>
@@ -33,7 +30,7 @@ export default function TabelSchedule({ schedule, lab }) {
           </div>
         </div>
       </div>
-      <div className="card">
+      {/* <div className="card">
         <div className="card-header d-flex justify-content-between">
           <h4>Tabel Jadwal</h4>
           <button type="button" className="btn btn-primary btn-floating">
@@ -78,7 +75,51 @@ export default function TabelSchedule({ schedule, lab }) {
             </table>
           </div>
         </div>
-      </div>
+      </div> */}
+      {generateTable({ schedule, lab, days })}
     </>
   )
+}
+
+function generateTable({ schedule, lab, days }) {
+  return days.map((day, index) => {
+    return (
+      <div key={index}>
+        <div className="section-title">{day}</div>
+        <table className="table table-bordered text-dark">
+          <thead>
+            <tr>
+              <th scope="col">Nama LAB</th>
+              <th scope="col">1</th>
+              <th scope="col">2</th>
+              <th scope="col">3</th>
+              <th scope="col">4</th>
+              <th scope="col">5</th>
+              <th scope="col">6</th>
+              <th scope="col">7</th>
+              <th scope="col">8</th>
+            </tr>
+          </thead>
+          <tbody>
+            {lab.map((item, index) => {
+                return (
+                  <tr key={index}>
+                    <th scope="row">{item.name}</th>
+                    {schedule.map((item2, index2) => {
+                      if (item2.labId == item.id && item2.day.toUpperCase() == day.toUpperCase()) {
+                        return (
+                          <td key={index2} className="text-center" colSpan={item2.end_session - item2.start_session + 1}>
+                            {item2.course} - {item2.Gurus.name} - sesi {item2.start_session} - {item2.end_session}
+                          </td>
+                        )
+                      }
+                    })}
+                  </tr>
+                )
+            })}
+          </tbody>
+        </table>
+      </div>
+    )
+  })
 }

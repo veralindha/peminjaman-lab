@@ -4,6 +4,7 @@ import Layout from "../../components/utils/layout"
 export default function TabelSchedulePage() {
   const [schedules, setSchedules] = useState([])
   const [labs, setLabs] = useState([])
+  const days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
 
   const handleGetSchedules = () => {
     fetch('http://localhost:3000/api/jadwal/all')
@@ -44,7 +45,7 @@ export default function TabelSchedulePage() {
         <div className="section-body">
           <div className="row">
             <div className="col-12">
-              <TabelSchedule schedule={schedules} lab={labs}/>
+              <TabelSchedule schedule={schedules} lab={labs} days={days}/>
             </div>
           </div>
         </div>
